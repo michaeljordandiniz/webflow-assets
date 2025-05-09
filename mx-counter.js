@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(update);
   }
 
-  const observer = new IntersectionObserver((entries, obs) => {
+  const mxCounterObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateCounter(entry.target);
