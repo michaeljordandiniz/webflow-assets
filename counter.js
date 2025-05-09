@@ -20,11 +20,11 @@ const observer = new IntersectionObserver((entries, obs) => {
     if (entry.isIntersecting) {
       const el = entry.target;
       animateCounter(el);
-      obs.unobserve(el); // só anima uma vez
+      obs.unobserve(el); // anima apenas uma vez
     }
   });
 }, {
-  threshold: 0.6 // só dispara quando 60% do elemento estiver visível
+  threshold: 0.6 // 60% visível para ativar
 });
 
 document.querySelectorAll('[data-counter]').forEach(el => {
