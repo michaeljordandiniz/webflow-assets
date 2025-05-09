@@ -15,6 +15,18 @@ function animateCounter(element, duration = 2000) {
   requestAnimationFrame(update);
 }
 
-document.querySelectorAll('.counter').forEach(el => {
-  animateCounter(el);
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      animateCounter(el);
+      obs.unobserve(el); // só anima uma vez
+    }
+  });
+}, {
+  threshold: 0.6 // só dispara quando 60% do elemento estiver visível
+});
+
+document.querySelectorAll('[data-counter]').forEach(el => {
+  observer.observe(el);
 });
