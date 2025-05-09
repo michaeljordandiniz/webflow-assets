@@ -1,3 +1,5 @@
+console.log("Script JS carregado!");
+
 function animateCounter(element, duration = 2000) {
   const start = parseInt(element.getAttribute('data-start'), 10);
   const end = parseInt(element.getAttribute('data-end'), 10);
@@ -15,7 +17,6 @@ function animateCounter(element, duration = 2000) {
   requestAnimationFrame(update);
 }
 
-// Usando IntersectionObserver para animar o contador quando o elemento entrar na tela
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -28,7 +29,8 @@ const observer = new IntersectionObserver((entries, obs) => {
   threshold: 0.6 // só dispara quando 60% do elemento estiver visível
 });
 
-// Seleciona elementos com o atributo "data-counter" igual a "mx-number-counter"
+// Verifica se o script encontrou os elementos com data-counter="mx-number-counter"
 document.querySelectorAll('[data-counter="mx-number-counter"]').forEach(el => {
+  console.log("Elemento encontrado:", el);
   observer.observe(el);
 });
