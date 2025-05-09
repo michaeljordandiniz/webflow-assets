@@ -1,4 +1,3 @@
-// Injeta @keyframes no <head>
 const style = document.createElement('style');
 style.textContent = `
 @keyframes spin {
