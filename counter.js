@@ -15,6 +15,7 @@ function animateCounter(element, duration = 2000) {
   requestAnimationFrame(update);
 }
 
+// Usando IntersectionObserver para animar o contador quando o elemento entrar na tela
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -24,9 +25,10 @@ const observer = new IntersectionObserver((entries, obs) => {
     }
   });
 }, {
-  threshold: 0.6 // 60% visível para ativar
+  threshold: 0.6 // só dispara quando 60% do elemento estiver visível
 });
 
-document.querySelectorAll('[data-counter]').forEach(el => {
+// Seleciona elementos com o atributo "data-counter" igual a "mx-number-counter"
+document.querySelectorAll('[data-counter="mx-number-counter"]').forEach(el => {
   observer.observe(el);
 });
