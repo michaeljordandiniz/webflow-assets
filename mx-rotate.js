@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Observer para ativar rotação quando o elemento entrar na tela
-  const observer = new IntersectionObserver((entries, obs) => {
+  const mxRotateObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         applyRotation(entry.target);
