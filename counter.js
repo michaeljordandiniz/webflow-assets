@@ -1,5 +1,3 @@
-console.log("Script JS carregado!");
-
 function animateCounter(element, duration = 2000) {
   const start = parseInt(element.getAttribute('data-start'), 10);
   const end = parseInt(element.getAttribute('data-end'), 10);
@@ -31,6 +29,5 @@ const observer = new IntersectionObserver((entries, obs) => {
 
 // Verifica se o script encontrou os elementos com data-counter="mx-number-counter"
 document.querySelectorAll('[data-counter="mx-number-counter"]').forEach(el => {
-  console.log("Elemento encontrado:", el);
   observer.observe(el);
 });
